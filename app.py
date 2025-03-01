@@ -76,5 +76,5 @@ def dashboard():
     return render_template('dashboard.html', chart='static/chart.png', reviews=reviews)
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
+    port = int(os.environ.get("PORT", 10000))  # Ensure it uses Render’s detected port
     app.run(host='0.0.0.0', port=port)
