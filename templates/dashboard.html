@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+    button{
+         font-size: 30px;
+         display: flex;
+        float: right;
+        margin:20px 20px;
+        padding:10px 10px;
+        border-radius: 10%;
+        color: rgb(174, 121, 223);
+        border-style: none;
+        background-color: aqua;
+        }
+        table {
+        width: 80%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        text-align: center;
+    }
+    th, td {
+        padding: 12px;
+        border: 1px solid #ddd;
+    }
+    th {
+        background-color: #343a40;
+        color: white;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    .badge {
+        padding: 5px 10px;
+        border-radius: 5px;
+        color: white;
+    }
+    .badge-good {
+        background-color: green;
+    }
+    .badge-bad {
+        background-color: red;
+    }
+    </style>
+</head>
+<body>
+    <h1>Sentiment Analysis Dashboard</h1>
+    <img src="{{ chart }}" alt="Sentiment Distribution">
+    <h2>Reviews</h2>
+    <table border="1">
+        <tr>
+            <th>Review</th>
+            <th>Sentiment</th>
+        </tr>
+        {% for review in reviews %}
+        <tr>
+            <td>{{ review.text }}</td>
+            <td>{{ review.sentiment }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <button><a href="{{ url_for('home') }}" style="
+         text-decoration: none;">Back</a></button>
+
+</body>
+</html>
